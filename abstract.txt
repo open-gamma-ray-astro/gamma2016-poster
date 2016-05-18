@@ -1,10 +1,14 @@
 Open data formats and software for gamma-ray astronomy
 ======================================================
 
-Authors: tbd
+Authors: Christoph Deil, Jeremy Perkins, Catherine Boisson, Johannes King, Peter
+Eger, Michael Mayer, Matthew Wood, Victor Zabalza, Jürgen Knödlseder, Tarek
+Hassan, Lars Mohrmann, Alexander Ziegler, Bruno Khelifi, Daniela Dorner, Gernot
+Maier, Giovanna Pedaletti, Jaime Rosado, José Luis Contreras, Julien Lefaucheur,
+Kai Brügge, Mathieu Servillat, Régis Terrier, Roland Walter, Saverio Lombardi
 
-In gamma-ray astronomy, a variety of data formats and proprietary software exist,
-developed for one specific mission or experiment. Especially in
+In gamma-ray astronomy, a variety of data formats and proprietary software
+exist, developed for one specific mission or experiment. Especially in
 ground-based gamma-ray astronomy, imaging atmospheric Cherenkov telescope (IACT)
 data and software has been private to the collaborations operating the
 telescopes. There is a general movement in science towards open data and
@@ -18,6 +22,6 @@ first face-to-face meeting on IACT high-level data model and formats took place
 in April 2016 in Meudon. We hope that this open multi-mission effort will help
 accelerate the development of open data formats and open-source software for
 gamma-ray astronomy, leading to synergies in the development of analysis codes
-and eventually better scientific results (reproducible, multi-mission). This poster
-will summarise what we have done so far and has the goal to solicit comments and
-future contributions from the gamma-ray astronomy community.
+and eventually better scientific results (reproducible, multi-mission). This
+poster will summarise what we have done so far and has the goal to solicit
+comments and future contributions from the gamma-ray astronomy community.
