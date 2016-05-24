@@ -1,5 +1,5 @@
-Open data formats and software for gamma-ray astronomy
-======================================================
+Open high-level data formats and software for gamma-ray astronomy
+=================================================================
 
 Authors: Christoph Deil, Jeremy Perkins, Catherine Boisson, Johannes King, Peter
 Eger, Michael Mayer, Matthew Wood, Victor Zabalza, Jürgen Knödlseder, Tarek
@@ -8,20 +8,21 @@ Maier, Giovanna Pedaletti, Jaime Rosado, José Luis Contreras, Julien Lefaucheur
 Kai Brügge, Mathieu Servillat, Régis Terrier, Roland Walter, Saverio Lombardi
 
 In gamma-ray astronomy, a variety of data formats and proprietary software
-exist, developed for one specific mission or experiment. Especially in
-ground-based gamma-ray astronomy, imaging atmospheric Cherenkov telescope (IACT)
-data and software has been private to the collaborations operating the
-telescopes. There is a general movement in science towards open data and
-software and specifically the next big IACT, the Cherenkov Telescope Array (CTA)
-will be operated as an open observatory.
+exist, often developed for one specific mission or experiment. Especially for
+ground-based imaging atmospheric Cherenkov telescopes (IACTs), data and software
+have been so far mostly private to the collaborations operating the telescopes.
+However, there is a general movement in science towards open data and software
+and the next big IACT array, the Cherenkov Telescope Array (CTA) will be
+operated as an open observatory.
 
 We have created a Github organisation at https://github.com/open-gamma-ray-astro
-where we are developing data format specifications. A public mailing list was
-set up at https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro and a
-first face-to-face meeting on IACT high-level data model and formats took place
-in April 2016 in Meudon. We hope that this open multi-mission effort will help
-accelerate the development of open data formats and open-source software for
-gamma-ray astronomy, leading to synergies in the development of analysis codes
-and eventually better scientific results (reproducible, multi-mission). This
-poster will summarise what we have done so far and has the goal to solicit
-comments and future contributions from the gamma-ray astronomy community.
+where we are developing high-level data format specifications. A public mailing
+list was set up at https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro
+and a first face-to-face meeting on IACT high-level data model and formats took
+place in April 2016 in Meudon (France). The hope is that this open multi-mission
+effort will help to accelerate the development of open data formats and
+open-source software for gamma-ray astronomy, leading to synergies in the
+development of analysis codes and eventually better scientific results
+(reproducible, multi-mission). This poster will summarize what we have done so
+far, and has the goal to solicit comments and future contributions from the
+gamma-ray astronomy community.
