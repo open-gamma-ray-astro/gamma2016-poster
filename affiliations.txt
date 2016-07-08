@@ -1,0 +1,51 @@
+Author affiliations
+-------------------
+
+Here I'm collecting affiliations for co-authors for the poster and proceeding.
+
+Authors
++++++++
+
+- Christoph Deil (mpik)
+- Jeremy Perkins (jeremy)
+- Catherine Boisson (obsparis)
+- Johannes King (mpik)
+- Peter Eger (mpik)
+- Michael Mayer (humboldt)
+- Matthew Wood (matthew)
+- Victor Zabalza (victor)
+- Jürgen Knödlseder (juergen)
+- Tarek Hassan (tarek)
+- Lars Mohrmann (erlangen)
+- Alexander Ziegler (erlangen)
+- Bruno Khelifi (apc)
+- Daniela Dorner (erlangen)
+- Gernot Maier (desy)
+- Giovanna Pedaletti (desy)
+- Jaime Rosado (jaime)
+- José Luis Contreras (jose)
+- Julien Lefaucheur (obsparis)
+- Kai Brügge (erlangen)
+- Mathieu Servillat (obsparis)
+- Régis Terrier (apc)
+- Roland Walter (roland)
+- Saverio Lombardi (saverio)
+
+Institutes
+++++++++++
+
+- mpik - Max-Planck-Institut f\"{u}r Kernphysik, Heidelberg, Germany
+- apc - APC, University of Paris 7, France
+- obsparis - LUTH, Observatoire de Paris, Meudon, France
+- erlangen - FAU, Erlangen, Germany
+- humboldth - Humboldt University, Berlin, Germany
+- desy - DESY, Zeuthen, Germany
+- roland - Observatoire de Genève, 51 chemin des Maillettes, 1290 Sauverny, Switzerland
+- jeremy - TODO
+- matthew - TODO
+- victor - TODO
+- juergen - TODO
+- tarek - TODO
+- jaime - TODO
+- jose - TODO
+- saverio - TODO
