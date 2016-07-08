@@ -14,16 +14,16 @@ Authors
 - Michael Mayer (humboldt)
 - Matthew Wood (matthew)
 - Victor Zabalza (victor)
-- Jürgen Knödlseder (juergen)
-- Tarek Hassan (madrid)
+- Jürgen Knödlseder (irap)
+- Tarek Hassan (ifae-bist)
 - Lars Mohrmann (erlangen)
 - Alexander Ziegler (erlangen)
 - Bruno Khelifi (apc)
 - Daniela Dorner (erlangen)
 - Gernot Maier (desy)
 - Giovanna Pedaletti (desy)
-- Jaime Rosado (madrid)
-- José Luis Contreras (madrid)
+- Jaime Rosado (ifae-bist)
+- José Luis Contreras (ifae-bist)
 - Julien Lefaucheur (obsparis)
 - Kai Brügge (erlangen)
 - Mathieu Servillat (obsparis)
@@ -41,9 +41,10 @@ Institutes
 - humboldth - Humboldt University, Berlin, Germany
 - desy - DESY, Zeuthen, Germany
 - roland - Observatoire de Genève, 51 chemin des Maillettes, 1290 Sauverny, Switzerland
-- madrid - Universidad Complutense de Madrid
+- gae-ucm - Universidad Complutense de Madrid
+- ifae-bist - Institut de Fisica d’Altes Energies (IFAE), The Barcelona Institute of Science and Technology, Campus UAB, 08193 Bellaterra (Barcelona) Spain
+- irap - IRAP, Toulouse, France
 - jeremy - TODO
 - matthew - TODO
 - victor - TODO
-- juergen - TODO
 - saverio - TODO
