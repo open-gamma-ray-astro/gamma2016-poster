@@ -15,15 +15,15 @@ Authors
 - Matthew Wood (matthew)
 - Victor Zabalza (victor)
 - Jürgen Knödlseder (juergen)
-- Tarek Hassan (tarek)
+- Tarek Hassan (madrid)
 - Lars Mohrmann (erlangen)
 - Alexander Ziegler (erlangen)
 - Bruno Khelifi (apc)
 - Daniela Dorner (erlangen)
 - Gernot Maier (desy)
 - Giovanna Pedaletti (desy)
-- Jaime Rosado (jaime)
-- José Luis Contreras (jose)
+- Jaime Rosado (madrid)
+- José Luis Contreras (madrid)
 - Julien Lefaucheur (obsparis)
 - Kai Brügge (erlangen)
 - Mathieu Servillat (obsparis)
@@ -41,11 +41,9 @@ Institutes
 - humboldth - Humboldt University, Berlin, Germany
 - desy - DESY, Zeuthen, Germany
 - roland - Observatoire de Genève, 51 chemin des Maillettes, 1290 Sauverny, Switzerland
+- madrid - Universidad Complutense de Madrid
 - jeremy - TODO
 - matthew - TODO
 - victor - TODO
 - juergen - TODO
-- tarek - TODO
-- jaime - TODO
-- jose - TODO
 - saverio - TODO
