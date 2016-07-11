@@ -44,7 +44,7 @@ Institutes
 - gae-ucm - Universidad Complutense de Madrid
 - ifae-bist - Institut de Fisica d’Altes Energies (IFAE), The Barcelona Institute of Science and Technology, Campus UAB, 08193 Bellaterra (Barcelona) Spain
 - irap - IRAP, Toulouse, France
-- jeremy - TODO
-- matthew - TODO
+- jeremy - NASA/GSFC
+- matthew - SLAC National Accelerator Laboratory
+- saverio - INAF - Osservatorio Astronomico di Roma - via Frascati 33 - 00040 Monte Porzio Catone (Roma) - Italy
 - victor - TODO
-- saverio - TODO
