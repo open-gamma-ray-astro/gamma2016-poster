@@ -1,14 +1,32 @@
 \section{Introduction}
 
-Science is aiming towards open and reproducible research. In gamma-ray astronomy, especially for ground-based imaging atmospheric Cherenkov telescopes (IACT), data and software have so far been mostly private to the collaboration operating the telescopes. The Cherenkov Telescop Array (CTA), the next generation of IACT, will be operated as an an open observatory, meaning that data and analysis softwares will be public at the end-user, science tools level. Momentum was thus given to the development of open data format and open-source software for gamma-ray astronomy, leading to synergies between experiments, ground based and space missions. 
+Science is aiming towards open and reproducible research. In gamma-ray astronomy, especially for ground-based imaging atmospheric Cherenkov telescopes (IACT), data and software have so far been mostly private to the collaboration operating the telescopes. The Cherenkov Telescope Array (CTA), the next generation of IACT, will be operated as an an open observatory, meaning that data and analysis softwares will be public at the end-user, science tools level. Momentum was thus given to the development of open data format and open-source software for gamma-ray astronomy, leading to synergies between experiments, ground based and space missions.
 
-Open source analysis tools for VHE γ-ray astronomy have emerged. They all meet on common ground of using FITS files for data transfer. The current IACTs (H.E.S.S., MAGIC and VERITAS) all use their own software based on the ROOT library, which makes it impossible to analyse the respective data with anything else than the corresponding software. Current open source analysis tools provide alternative analysis techniques compared to the present standard in VHE astronomy. It is assumed that these techniques (e.g. 3D likelihood analysis such as already implemented for Fermi-LAT) improve the sensitivity of IACTs by roughly 20\%. The data model for CTA is currently being developed but still work in progress. A main point of defining the high level data format for CTA is to understand the instrument including its systematics and IRF dependencies. In addition the needs from a user perspective have to be taken into account to create a solution as simple as possible. Having agreed on a common data format for files and on a way how to store and access those files (folder structure), makes mid-level (event energies, positions) and high-level (source position, morphology, spectrum) checks between the different chains, algorithms and open-source tools possible. This will also ease interoperability with other codes (e.g. to check results, combine results in one plot, ...). Currently two open-source science tools packages are being designed for current IACT and CTA data analysis, Gammapy (\cite{2015arXiv150907408D}) and Ctools (\citep{2016arXiv160600393K}). Gammapy is an in-development Astropy-affiliated package. Ctools is based on the GammaLib analysis framework, which is mainly written in C++.
+This is illustrated in Figure~\ref{fig:purpose}: there are many gamma-ray data producers and science tools to work with gamma-ray data, so agreeing on common data models and formats that cover most common analysis cases makes things simpler for data producers, tool developers and users.
 
-We have created a  Github organization where we are developing high-level data format specifications, in accordance with astronomy standards. 
+\begin{figure}[tb]
+  \centerline{\includegraphics[width=\textwidth]{figures/purpose}}
+  \caption{The purpose of the \texttt{gamma-astro-data-formats} effort: there's
+  many gamma-ray data producers and consumers.}
+  \label{fig:purpose}
+\end{figure}
+
+Open source analysis tools for VHE gamma-ray astronomy have emerged. They all meet on common ground of using FITS files for data transfer. The current IACTs (H.E.S.S., MAGIC and VERITAS) all use their own software based on the ROOT library, which makes it impossible to analyze the respective data with anything else than the corresponding software. Current open source analysis tools provide alternative analysis techniques compared to the present standard in VHE astronomy. It is assumed that these techniques (e.g. 3D likelihood analysis such as already implemented for Fermi-LAT) improve the sensitivity of IACTs by roughly 20\%. The data model for CTA is currently being developed but still work in progress. A main point of defining the high level data format for CTA is to understand the instrument including its systematics and IRF dependencies. In addition the needs from a user perspective have to be taken into account to create a solution as simple as possible. Having agreed on a common data format for files and on a way how to store and access those files (folder structure), makes mid-level (event energies, positions) and high-level (source position, morphology, spectrum) checks between the different chains, algorithms and open-source tools possible. This will also ease interoperability with other codes (e.g. to check results, combine results in one plot, ...). Currently two open-source science tools packages are being designed for current IACT and CTA data analysis, Gammapy (\cite{2015arXiv150907408D}) and Ctools (\cite{2016AnA...593A...1K}). Gammapy is an in-development Astropy-affiliated package. Ctools is based on the GammaLib analysis framework, which is mainly written in C++.
+
+We have created a Github organization where we are developing high-level data format specifications, in accordance with astronomy standards. 
+
+The specs are written in a markup format called "restructured text" (RST),
+which gets transformed by Sphinx to HTML or PDF, the latest rendered version is always available online (see Figure~\ref{fig:webpage}).
+
+\begin{figure}[tb]
+  \centerline{\includegraphics[width=0.6\textwidth]{figures/webpage}}
+  \caption{The data format specifications are available at \texttt{http://gamma-astro-data-formats.readthedocs.io/} in HTML and PDF format.}
+  \label{fig:webpage}
+\end{figure}
 
 \section{How to contribute}
 
-The specifications of a given data level format defines the names and semantics of data and header fields. Such specifications are made easy to understand. Specifications of this format are currently written that can form the basis for prototyping for data producers (mainly existing IACTs and simulated CTA data) and consumers (mainly science tool codes). We include example files and some explanations, in additon to the detailed specifications for a given format. 
+The specifications of a given data level format defines the names and semantics of data and header fields. Such specifications are made easy to understand. Specifications of this format are currently written that can form the basis for prototyping for data producers (mainly existing IACTs and simulated CTA data) and consumers (mainly science tool codes). We include example files and some explanations, in addition to the detailed specifications for a given format. 
 
 The scope is high-level data, starting with event lists and instrument response functions (IRFs), what is called "data level 3" (DL3) in CTA. The first stable release (archived on Zenodo with a DOI) is coming soon.
 
@@ -17,28 +35,34 @@ If you want to contribute, it is simple:
 \begin{itemize}
 \item{}Use the existing format and give feedbacks. Propose additions and changes.
 \item{}Join the mailing list (see next section). Send an e-mail with an idea or proposal.
-\item{}Create a github account. File an issue with a correction or make a pull request proposing additions.
+\item{}Create a Github account. File an issue with a correction or make a pull request proposing additions.
 \end{itemize}
 
-No formal approval process is in place yet as this is avery recent effort
+No formal approval process is in place yet as this is a very recent effort.
 
 \subsection{Resources}
 
 \begin{itemize}
-\item{}Mailing list for announcements and high level discussions (75 members, including people from all major gamma-ray collaborations : lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro
-\item{}Github issues and pull requests are used for detailed discussions: github.com/open-gamma-ray-astro
-\item{}Data format specifications in HTML and PDF format, including example files : gamma-astro-data-formats.readthedocs.io/
+\item{}Mailing list for announcements and high level discussions (75 members, including people from all major gamma-ray collaborations : \url{https://lists.nasa.gov/mailman/listinfo/open-gamma-ray-astro}
+\item{}Github issues and pull requests are used for detailed discussions: \url{https://github.com/open-gamma-ray-astro/gamma-astro-data-formats}
+\item{}Data format specifications in HTML and PDF format, including example files : \url{https://gamma-astro-data-formats.readthedocs.io/}
 \end{itemize}
 
 \section{Format specifications content}
 
-So far the focus has been mainly on the definition of the IACT DL3 formats.  A "general" section defines common things like details about time scales or coordinate systems. Some work on the definition of higher-level formats for spectra and lightcurves is on going. HEALPIX  (Hierarchical Equal Area isoLatitude Pixelization of a sphere) projection for images and  description of data cubes are also condidered.
+So far the focus has been mainly on the definition of the IACT DL3 formats.  A "general" section defines common things like details about time scales or coordinate systems. Some work on the definition of higher-level formats for spectra and lightcurves is on going. HEALPIX  (Hierarchical Equal Area isoLatitude Pixelization of a sphere) projection for images and  description of data cubes are also considered.
 
 Next sections will describe the effort toward the event list format definition as well as an example for spectra.
 
 \subsection{IACT DL3}
 
-DL3 format should describe all data released to the end users for analysis with science tools as , EVENT, IRF and TECH (technical data not directly attached to the object observed). Prototyping by existing IACTs (H.E.S.S.,MAGIC,VERITAS and science tools (GammaPy, Ctools) is a major activity. 
+DL3 format should describe all data released to the end users for analysis with science tools as , EVENT, IRF and TECH (technical data not directly attached to the object observed). Figure~\ref{fig:iact-dl3} illustrates some of the DL3 data content. Prototyping by existing IACTs (H.E.S.S.,MAGIC,VERITAS and science tools (GammaPy, Ctools) is a major activity. 
+
+\begin{figure}[tb]
+  \centerline{\includegraphics[width=\textwidth]{figures/iact-dl3}}
+  \caption{Low-level example: IACT DL3}
+  \label{fig:iact-dl3}
+\end{figure}
 
 Many points are still under discussion/consideration:
 
@@ -52,32 +76,18 @@ Many points are still under discussion/consideration:
 
 \subsection{Likelihood SED and light curves}
 
-A format is developped to store spectral analysis results for exchange and publication, not only "flux points" and "upper limits", but also the full likelihood profiles. 
+A format is developed to store spectral analysis results for exchange and publication, not only "flux points" and "upper limits", but also the full likelihood profiles (see example in Figure~\ref{fig:sed}).
 
-It was first developped in Fermipy (ref) and used for Fermi-LAT (ref). It is now being adopted by groung-based high energy astronomy. Likelihood profiles are important information when those data are to be used in global spectral energy distribution (SED) of a source. 
+\begin{figure}[tb]
+  \centerline{\includegraphics[width=0.7\textwidth]{figures/llsed_hights}}
+  \caption{High-level example: SED likelihood profiles}
+  \label{fig:sed}
+\end{figure}
+
+It was first developed in Fermipy\footnote{\url{https://github.com/fermipy/fermipy}} and used for Fermi-LAT (ref). It is now being adopted by ground-based high energy astronomy. Likelihood profiles are important information when those data are to be used in global spectral energy distribution (SED) of a source. 
 
 Description of light curves is another topic open for discussion. 
 
-\begin{figure}[tb]
-  \centerline{\includegraphics[width=\textwidth]{figures/purpose}}
-  \caption{The purpose of the \texttt{gamma-astro-data-formats} effort: there's
-  many gamma-ray data producers and consumers.}
-\end{figure}
+\section{Conclusions}
 
-\begin{figure}[tb]
-  \centerline{\includegraphics[width=\textwidth]{figures/webpage}}
-  \caption{Webpage}
-\end{figure}
-
-\begin{figure}[tb]
-  \centerline{\includegraphics[width=\textwidth]{figures/iact-dl3}}
-  \caption{Low-level example: IACT DL3}
-\end{figure}
-
-\begin{figure}[tb]
-  \centerline{\includegraphics[width=\textwidth]{figures/llsed_hights}}
-  \caption{High-level example: SED likelihood profiles}
-\end{figure}
-
-
-% \input{tables/example}
+TODO
