@@ -1,8 +1,10 @@
-\section{Data format specifications}
+\section{Data models and formats}
 
-So far the focus has been mainly on the definition of the IACT DL3 formats.  A "general" section defines common things like details about time scales or coordinate systems. Some work on the definition of higher-level formats for spectra and lightcurves is on going. HEALPIX  (Hierarchical Equal Area isoLatitude Pixelization of a sphere) projection for images and  description of data cubes are also considered.
+This section gives an overview of the status and plans for the gamma-ray data model and formats. As mentioned before, this effort was only started very recently and none of the formats should be considered stable. The next two sections will describe the effort to define an event data model and format (DL3), and higher-level formats for images, spectra and lightcurves (DL4) (i.e. content split as already illustrated in Figure~\ref{fig:purpose})
 
-Next sections will describe the effort toward the event list format definition as well as an example for spectra.
+In the data specification document we have created a "general" section that gives precise definitions of common quantities, such as precise definitions of time scales as well as coordinates systems. One example is a precise definition of \texttt{AZIMUTH} and \texttt{ALTITUDE}. We define \texttt{AZIMUTH} to be oriented east of north, and \texttt{ALTITUDE} to be relative to the zenith direction (not the horizon plane or a reference earth ellipsoid) and without applying a refraction correction.
+
+There are some general questions we are discussing about where to be specific or flexible in our format specifications. One example is whether our data format specifications should be tied to FITS (and e.g. say the data type of a column is \texttt{1E}, which is the data type code for 32-bit float in FITS), or whether it would be better to only say that the data type is "float", implicitly allowing the storage of this column as 32-bit or 64-bit float, and being able to store the data e.g. in text ECSV files in addition to binary FITS files. Another contentious point is whether physical units should be fixed (e.g. "MeV" or "TeV"), or whether the units should be flexible and only serialization formats that support declaration of units (such as FITS or VOTABLE or ECSV) should be supported and science tools are expected to process the unit information correctly.
 
 \subsection{Data level 3 (DL3) specifications}
 
