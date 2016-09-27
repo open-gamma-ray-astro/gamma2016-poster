@@ -9,9 +9,11 @@ Next sections will describe the effort toward the event list format definition a
 DL3 format should describe all data released to the end users for analysis with science tools as , EVENT, IRF and TECH (technical data not directly attached to the object observed). Figure~\ref{fig:iact-dl3} illustrates some of the DL3 data content. Prototyping by existing IACTs (H.E.S.S., MAGIC, VERITAS and science tools (Gammapy, Ctools) is a major activity. 
 
 \begin{figure}[tb]
-  \centerline{\includegraphics[width=\textwidth]{figures/iact-dl3}}
-  \caption{Low-level example: IACT DL3}
-  \label{fig:iact-dl3}
+\centerline{\includegraphics[width=0.9\textwidth]{figures/iact-dl3}}
+\caption{
+Illustration of major components of IACT ("imaging atmospheric Cherenkov telescope", here a H.E.S.S. 1 Crab nebula observation) DL3 ("data level 3") data. The \texttt{EVENTS} are stored as a table with the most important parameters shown. To derive spectra and morphology measurements of astrophysical sources, IRFs ("instrument response functions") are used: the effective area (\texttt{AEFF}), energy dispersion (\texttt{EDISP}) and point spread function (\texttt{PSF}). Sometimes background (\texttt{BKG}) models are also created and released as part of a DL3 data release, and can be treated like an IRF, and sometimes deriving background models is left to the science tools. Note that this picture is not complete, see the "IACT DL3" section.
+}
+\label{fig:iact-dl3}
 \end{figure}
 
 Many points are still under discussion/consideration:
