@@ -10,13 +10,13 @@ from gammapy.data import DataStore
 
 def peek_plots(obs):
     fig = obs.aeff.peek()
-    fig.savefig('iact-dl3-aeff.png')
+    fig.savefig('iact-dl3-aeff.pdf')
 
     fig = obs.edisp.peek()
-    fig.savefig('iact-dl3-edisp.png')
+    fig.savefig('iact-dl3-edisp.pdf')
 
     fig = obs.psf.peek()
-    fig.savefig('iact-dl3-psf.png')
+    fig.savefig('iact-dl3-psf.pdf')
 
 def proceeding_plot(obs):
     # import IPython; IPython.embed()
@@ -25,16 +25,18 @@ def proceeding_plot(obs):
     obs.aeff.plot_energy_dependence(ax=axes[0])
 
     edisp = obs.edisp.to_energy_dispersion(offset='1 deg')
-    edisp.plot_matrix(ax=axes[1])
+    # edisp.plot_matrix(ax=axes[1])
 
     psf_edep = obs.psf.to_table_psf(theta='1 deg')
-    for energy in [1, 3, 10] * u.TeV:
+    for energy in [1, 3] * u.TeV:
         psf = psf_edep.table_psf_at_energy(energy)
         psf.plot_psf_vs_theta()
-
+    plt.xscale('linear')
+    plt.yscale('linear')
+    plt.xlim(0, 0.5)
     fig.tight_layout()
 
-    filename = 'iact-dl3.png'
+    filename = 'iact-dl3.pdf'
     print('Writing ', filename)
     fig.savefig(filename)
 
@@ -44,3 +46,4 @@ if __name__ == '__main__':
     obs = data_store.obs(obs_id=23592)
 
     proceeding_plot(obs)
+    peek_plots(obs)
