@@ -26,7 +26,7 @@ A dedicated two-day face-to-face meeting on IACT DL3 data was held in April 2016
 \item{}What is an observation? Good time interval? Response time interval?
 \item{}How to link \texttt{EVENT} and \texttt{IRF}?
 \item{}Pointing and live time information
-\item{}IRF axis and validity ranges
+\item{}IRF axis specification and validity ranges
 \item{}FoV coordinates
 \item{}How to support multiple EVENT classes and types?
 \end{itemize}
@@ -34,6 +34,23 @@ A dedicated two-day face-to-face meeting on IACT DL3 data was held in April 2016
 The work on IACT DL3 is continuing in the different IACT collaborations, with communications online via Github, monthly joint tele-conferences, and a planned face-to-face follow-up meeting in fall 2016. So far the focus is on pointed gamma-ray observations, contributions and involvement from people working on slewing telescopes (e.g. Fermi-LAT or HAWC and also IACTs) or non-gamma-ray telescopes with similar data (e.g. neutrino telescopes) are welcome. The largest stakeholder for the IACT DL3 work is CTA.
 
 \subsection{Data level 4 \& 5 specifications}
+
+Another topic in the \texttt{gamma-astro-data-formats} specifications is the development of formats to store high-level data products such as images, spectra or lightcurves (data level 4) or catalog (data level 5).
+
+\begin{itemize}
+\item{} For 2-dimensional images, the FITS standard (including world coordinates systems WCS) provides a solution that works for gamma-ray images as well. If something gamma-ray specific were to be added, it would likely be specifications on how to store meta information like the energy band or other analysis or provenance parameters used to make the image.
+\item{} For 3-dimensional cubes, where the third dimension is \texttt{ENERGY}, commonly 3-dimensional \texttt{FITS IMAGE} extensions are used. However, due to either the complexity or missing features in the FITS WCS model, the energy axis information is not represented in the FITS header, but a separate \texttt{BINTABLE HDU} instead called \texttt{ENERGY} (if the cube represents quantities at given energies, like exposure or flux), or \texttt{EBOUNDS} ("energy bounds", if the cube represents integral quantities like e.g. counts).
+This format has been widely used in gamma-ray astronomy for a long time, a specification at \texttt{gamma-astropy-data-formats} defining the exact semantics of how the energy axis should be interpolated and integrated would be welcome.
+\item{} For all-sky maps and cubes, HEALPIX is commonly used in gamma-ray astronomy (e.g. by Fermi-LAT). While 2-dimensional HEALPIX images are standardized, extensions have been developed to represent cubes, as well as to store sparse data or images that don't cover the whole sky \footnote{\url{https://github.com/tburnett/Fermi-LAT/blob/master/pointlike_document/Data\%20Format.ipynb}}. These gamma-ray specific extensions are not standardized, and a specification at \texttt{gamma-astro-data-formats} would be welcome.
+\item{} Spectra
+\item{} Lightcurves
+\item{} Catalogs
+\end{itemize}
+
+
+
+Some issues have been solved many years ago by astronomers
+
 
 A format is developed to store spectral analysis results for exchange and publication, not only "flux points" and "upper limits", but also the full likelihood profiles (see examples in Figure~\ref{fig:dl4-examples}).
 
