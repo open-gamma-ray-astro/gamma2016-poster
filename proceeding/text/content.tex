@@ -42,17 +42,10 @@ Another topic in the \texttt{gamma-astro-data-formats} specifications is the dev
 \item{} For 3-dimensional cubes, where the third dimension is \texttt{ENERGY}, commonly 3-dimensional \texttt{FITS IMAGE} extensions are used. However, due to either the complexity or missing features in the FITS WCS model, the energy axis information is not represented in the FITS header, but a separate \texttt{BINTABLE HDU} instead called \texttt{ENERGY} (if the cube represents quantities at given energies, like exposure or flux), or \texttt{EBOUNDS} ("energy bounds", if the cube represents integral quantities like e.g. counts).
 This format has been widely used in gamma-ray astronomy for a long time, a specification at \gadf defining the exact semantics of how the energy axis should be interpolated and integrated would be welcome.
 \item{} For all-sky maps and cubes, HEALPIX is commonly used in gamma-ray astronomy (e.g. by Fermi-LAT). While 2-dimensional HEALPIX images are standardized, extensions have been developed to represent cubes, as well as to store sparse data or images that don't cover the whole sky \footnote{\pointlikedata}. These gamma-ray specific extensions are not standardized, and a specification at \gadf would be welcome.
-\item{} For 1-dimensional spectra, a format to store flux points and upper limits, as well as full likelihood profiles is available at \gadf.
-\item{} Lightcurves
-\item{} Catalogs
+\item{} For 1-dimensional spectra, a format to store flux points and upper limits, as well as full likelihood profiles is available at \gadf (see Figure~\ref{fig:dl4-examples} left panel). It was first developed in Fermipy and applied to Fermi-LAT analyses, and is now being adopted for IACT spectra.
+\item{} Lightcurves (see Figure~\ref{fig:dl4-examples} right panel). Description of light curves is another topic open for discussion. Previous work to define a gamma-ray lightcurve format: \cite{2010AnA...524A..48T}
+\item{} No format specifications have been proposed for catalogs (data level 5, DL5) yet. So far each catalog (Fermi-LAT, upcoming H.E.S.S. and HAWC) is unique (but all similar) and come science tools have per-catalog code to produce corresponding sky models. Whether it makes sense to try and specify a common catalog format for gamma-ray astronomy remains to be discussed. Probably at least adopting the spectrum and lightcurve formats mentioned before could be useful.
 \end{itemize}
-
-It was first developed in Fermipy\footnote{\fermipy} and used for Fermi-LAT (ref). It is now being adopted by ground-based high energy astronomy. Likelihood profiles are important information when those data are to be used in global spectral energy distribution (SED) of a source. 
-
-Description of light curves is another topic open for discussion. 
-Previous work to define a gamma-ray lightcurve format: \cite{2010AnA...524A..48T}
-
-A format is developed to store spectral analysis results for exchange and publication, not only "flux points" and "upper limits", but also the full likelihood profiles (see examples in Figure~\ref{fig:dl4-examples}).
 
 \begin{figure}[tb]
 \centerline{\includegraphics[width=\textwidth]{figures/dl4-examples}}
