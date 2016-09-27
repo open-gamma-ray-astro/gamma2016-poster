@@ -8,7 +8,7 @@ There are some general questions we are discussing about where to be specific or
 
 \subsection{Data level 3 (DL3) specifications}
 
-DL3 format should describe all data released to the end users for analysis with science tools as , EVENT, IRF and TECH (technical data not directly attached to the object observed). Figure~\ref{fig:iact-dl3} illustrates some of the DL3 data content. Prototyping by existing IACTs (H.E.S.S., MAGIC, VERITAS and science tools (Gammapy, Ctools) is a major activity. 
+The interface between low-level (calibration, reconstruction and gamma-hadron separation pipeline) and high-level (science tool) analysis for gamma-ray data is usually represented by an event list, where at a minimum the \texttt{EVENT\_ID}, observation \texttt{TIME}, as well as the reconstructed \texttt{ENERGY} and sky position (\texttt{RA}, \texttt{DEC}) is given for every event. In addition, instrument response functions (IRFs) as well as auxiliary information such as telescope configuration options, good time intervals (GTIs), livetime and pointing information (collectively called \texttt{TECH} in CTA) are needed by the science tools to compute exposures as well as effective resolutions (PSF and EDISP) and ultimately fluxes and to compare the data with sky models. This DL3 data, illustrated in Figure~\ref{fig:iact-dl3} is similar for all gamma-ray telescopes (and also neutrino telescopes), although in detail it is different e.g. for telescopes that mostly do pointed observations (like IACTs) or that do slewing observations (like Fermi-LAT or HAWC).
 
 \begin{figure}[tb]
 \centerline{\includegraphics[width=0.9\textwidth]{figures/iact-dl3}}
@@ -18,15 +18,20 @@ Illustration of major components of IACT ("imaging atmospheric Cherenkov telesco
 \label{fig:iact-dl3}
 \end{figure}
 
-Many points are still under discussion/consideration:
+We have started to develop a data model and format specification for IACT DL3 data. As a starting point, we wrote down the existing formats used by H.E.S.S. and partly also VERITAS and MAGIC, that are mostly supported by the exiting science tool prototypes (Gammapy and ctools). H.E.S.S. is planning to release a small test dataset in the current format consisting of roughly 50 hours of H.E.S.S. 1 observations on a few sources in fall 2016.
+
+A dedicated two-day face-to-face meeting on IACT DL3 data was held in April 2016 in Meudon, France, with 16 participants from all major existing IACTs and CTA (see \url{https://github.com/open-gamma-ray-astro/2016-04_IACT_DL3_Meeting/}). The use cases and status of efforts to export and archive their data in FITS was presented, as well as the ongoing prototyping in science tools. Many important points were discussed, e.g.
 
 \begin{itemize}
-\item{}Observations modes, time intervals
-\item{}How to link EVENT and IRF
+\item{}What is an observation? Good time interval? Response time interval?
+\item{}How to link \texttt{EVENT} and \texttt{IRF}?
 \item{}Pointing and live time information
 \item{}IRF axis and validity ranges
 \item{}FoV coordinates
+\item{}How to support multiple EVENT classes and types?
 \end{itemize}
+
+The work on IACT DL3 is continuing in the different IACT collaborations, with communications online via Github, monthly joint tele-conferences, and a planned face-to-face follow-up meeting in fall 2016. So far the focus is on pointed gamma-ray observations, contributions and involvement from people working on slewing telescopes (e.g. Fermi-LAT or HAWC and also IACTs) or non-gamma-ray telescopes with similar data (e.g. neutrino telescopes) are welcome. The largest stakeholder for the IACT DL3 work is CTA.
 
 \subsection{Data level 4 \& 5 specifications}
 
