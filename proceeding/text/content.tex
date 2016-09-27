@@ -26,12 +26,15 @@ Many points are still under discussion/consideration:
 
 \subsection{Likelihood SED and light curves}
 
-A format is developed to store spectral analysis results for exchange and publication, not only "flux points" and "upper limits", but also the full likelihood profiles (see example in Figure~\ref{fig:sed}).
+A format is developed to store spectral analysis results for exchange and publication, not only "flux points" and "upper limits", but also the full likelihood profiles (see examples in Figure~\ref{fig:dl4-examples}).
 
 \begin{figure}[tb]
-  \centerline{\includegraphics[width=0.7\textwidth]{figures/llsed_hights}}
-  \caption{High-level example: SED likelihood profiles}
-  \label{fig:sed}
+\centerline{\includegraphics[width=\textwidth]{figures/dl4-examples}}
+\caption{
+Gamma-ray "data level 4" examples. \emph{Left:} spectral energy distribution (SED) likelihood profiles (green), with flux points and upper limits as well
+as a best-model fit overplotted. \emph{Right:} Lightcurve of 3FGL~J0349.9-2102 from the third Fermi-LAT catalog.
+}
+\label{fig:dl4-examples}
 \end{figure}
 
 It was first developed in Fermipy\footnote{\url{https://github.com/fermipy/fermipy}} and used for Fermi-LAT (ref). It is now being adopted by ground-based high energy astronomy. Likelihood profiles are important information when those data are to be used in global spectral energy distribution (SED) of a source. 
