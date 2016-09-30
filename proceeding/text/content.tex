@@ -7,6 +7,9 @@ In the data specification document we have created a "general" section where com
 
 There are some general topics still under discussion: There is no consensus on how specific format specifications should be (for instance, fixing the data type and precision of each variable, or allowing certain flexibility) or if other data formats (e.g. text ECSV) should be also supported apart from the initially proposed FITS format.
 
+% The specs are written in a markup format called "restructured text" (RST), which gets transformed by Sphinx to HTML or PDF, the latest rendered version is always available online (see Figure~\ref{fig:webpage}).
+
+
 %There are some general questions we are discussing about where to be specific or flexible in our format specifications. One example is whether our data format specifications should be tied to FITS (and e.g. say the data type of a column is \texttt{1E}, which is the data type code for 32-bit float in FITS), or whether it would be better to only say that the data type is "float", implicitly allowing the storage of this column as 32-bit or 64-bit float, and being able to store the data e.g. in text ECSV files in addition to binary FITS files. Another contentious point is whether physical units should be fixed (e.g. "MeV" or "TeV"), or whether the units should be flexible and only serialization formats that support declaration of units (such as FITS or VOTABLE or ECSV) should be supported and science tools are expected to process the unit information correctly.
 
 \subsection{Data level 3 specifications}

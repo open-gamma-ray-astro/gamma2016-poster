@@ -1,32 +1,17 @@
-\section{Resources and Process}
+\section{Resources, Process, Work Product}
 
-% \subsection{How to contribute}
-
-The specifications of the format for a given data level defines the names and semantics of data and header fields. %Such specifications are made easy to understand. 
-The specifications currently being developed can form the basis for prototypes used by data producers (mainly existing IACTs and simulated CTA data) and consumers (mainly science tools in development). We include example files and some explanations, in addition to the detailed specifications of each data level. 
-
-The main objective of the project is to define a data format for high-level data, starting with event lists and IRFs, labeled as "data level 3" (DL3) in CTA. The first stable release (archived on Zenodo with a DOI) will be released soon.
-
-At such an early stage there are many ways to contribute to this effort:
+The goal of the \gadf effort is to enable efficient collaboration on gamma-ray data formats and codes. To this end, we have set up the following resources that are open to anyone interested in the topic:
 
 \begin{itemize}
-\item{}Use the existing format and give feedback. Propose additions and changes.
-\item{}Join the mailing list (see next section). Send an e-mail with any idea or proposal.
-\item{}Create a Github account. File an issue with a correction or make a pull request proposing additions.
+\item{} A mailing list (currently 75 members, including people from all major gamma-ray collaborations) with this official description: ``This group is organized for the discussion of software and data formats for the gamma-ray astronomy community. If you are interested in open and common data and software formats for space- and-ground based instruments you are encouraged to join.'': \\ \ogralist
+\item{}A Github organisation for online collaboration on data format specifications via issues and pull requests:\\ \gadfgithub
+\item{}Our main work product, the data format specifications, are available online at:\\ \gadfrtd
+\item{}We hold monthly tele-conferences and plan to hold roughly bi-yearly face-to-face meetings. The first one (Meudon, France in April 2016) was focused on IACT DL3, future meetings will be a bit broader in scope: \ogrameudon
 \end{itemize}
 
-% No formal approval process is in place yet as this is a very recent effort.
+Our main work product will be a set of data format specifications for gamma-ray data. Each format usually specifies the names and semantics of data and metadata (a.k.a. "header") fields. The scope, status, ongoing discussions and plans for the data format specifications are presented in the next section. The development of open-source tools and libraries as well as export of existing gamma-ray data to these proposed formats is highly encouraged. However, that work is mainly done by members of the collaborations and software projects mentioned in Figure~\ref{fig:purpose}, who then make suggestions for additions or improvements to the existing specifications.
 
-%\subsection{Resources}
-Resources:
-\begin{itemize}
-\item{} Mailing list for announcements and high level discussions (75 members, including people from all major gamma-ray collaborations): \\ \ogralist
-\item{}Github issues and pull requests are used for detailed discussions:\\ \gadfgithub
-\item{}Data format specifications in HTML and PDF format, including example files:\\ \gadfrtd
-\end{itemize}
-
-The specs are written in a markup format called "restructured text" (RST),
-which gets transformed by Sphinx to HTML or PDF, the latest rendered version is always available online (see Figure~\ref{fig:webpage}).
+Currently the process of specification writing is informal, and the data format specifications currently written should be seen as first suggestions, not final standards. In a sense we are following the ``release early and often'' philosophy, hoping for feedback and contributions from the larger gamma-ray astronomy community. To a certain degree this was motivated by the lack of progress in the past five years on IACT DL3 formats -- in CTA people were starting to work on this, but CTA doesn't produce DL3 data yet, and current IACTs were starting to export their data to FITS format and analyzing them with the current science tools, and many slightly different ways to store the same information in FITS files appeared. Our hope is that this more open format development, and making adoption and contributions easy (sending a comment to the mailing list, or making an issue or pull request on Github) will help accelerate the process. The need to achieve stability and how to deal with ``requests for enhancement'' after a first stable version of the format specifications will be discussed at future meetings.
 
 \begin{figure}[tb]
 \centerline{\includegraphics[width=\textwidth]{figures/webpage}}
