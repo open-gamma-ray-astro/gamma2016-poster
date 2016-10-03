@@ -1,9 +1,10 @@
 \section{Data models and formats}
 
 This section gives an overview of the current status and plans for the gamma-ray data model and formats. As mentioned before, this effort was only started recently and none of the formats should be considered stable. The next two sections will describe the effort to define an event data model and format (DL3), and higher-level formats for sky-maps, spectra and lightcurves (DL4), i.e. content split as already illustrated in Figure~\ref{fig:purpose}.
-
-In the data specification document we have created a "general" section where common quantities are defined, such as precise definitions of time scales as well as coordinate systems. One example is a precise definition of \texttt{AZIMUTH} and \texttt{ALTITUDE}. We define \texttt{AZIMUTH} to be oriented east of north, and \texttt{ALTITUDE} to be relative to the zenith direction (not the horizon plane tangential to a reference earth ellipsoid) and without applying a refraction correction.
-
+In the data specification document we have created a ``general'' section where common quantities are defined, such as precise definitions of time scales as well as coordinate systems. 
+%
+% One example is a precise definition of \texttt{AZIMUTH} and \texttt{ALTITUDE}. We define \texttt{AZIMUTH} to be oriented east of north, and \texttt{ALTITUDE} to be relative to the zenith direction (not the horizon plane tangential to a reference earth ellipsoid) and without applying a refraction correction.
+%
 There are some general topics still under discussion, e.g. there is no consensus on how specific or flexible the format specifications should be. E.g. some people prefer to be very specific (data must be stored in FITS files, data types and units fixed), others would prefer to be flexible (only define header keywords and column names, but data can be stored in other file formats as well, e.g. text-based formats like ECSV).
 % 
 % format specifications should be (for instance, fixing the data type and precision of each variable, or allowing certain flexibility) or if other data formats (e.g. text ECSV) should be also supported apart from the initially proposed FITS format.
@@ -15,12 +16,12 @@ There are some general topics still under discussion, e.g. there is no consensus
 
 \subsection{Data level 3 specifications}
 
-The interface between low-level (calibration, shower reconstruction, gamma-hadron separation) and high-level (science tools) analysis for gamma-ray data is usually represented by an event list, where at a minimum the \texttt{EVENT\_ID}, \texttt{TIME}, as well as the reconstructed \texttt{ENERGY} and sky position (\texttt{RA}, \texttt{DEC}) is given for every event. In addition, IRFs as well as auxiliary technical information such as telescope configuration options, good time intervals (GTIs), live-time and pointing information (collectively called \texttt{TECH} in CTA) are needed by the science tools to compute exposures, effective resolutions (PSF and EDISP) and ultimately fluxes to compare the data with sky models. This DL3 data, illustrated in Figure~\ref{fig:iact-dl3}, is similar for all gamma-ray telescopes (and other event-recording instruments like e.g. neutrino telescopes). One major difference that affects data formats and analysis tools is whether the gamma-ray telescope was operated in a pointed observation mode (like IACTs most of the time) or in a slewing mode (like HAWC or Fermi-LAT most of the time).
+The interface between low-level (calibration, shower reconstruction, gamma-hadron separation) and high-level (science tools) analysis for gamma-ray data is usually represented by an event list, where at a minimum the \texttt{EVENT\_ID}, \texttt{TIME}, as well as the reconstructed \texttt{ENERGY} and sky position (\texttt{RA}, \texttt{DEC}) is given for every event. In addition, instrument response functions (IRFs) as well as auxiliary technical information such as telescope configuration options, good time intervals (GTIs), live-time and pointing information (collectively called \texttt{TECH} in CTA) are needed by the science tools to compute exposures, effective resolutions (PSF and EDISP) and ultimately fluxes to compare the data with sky models. This DL3 data, illustrated in Figure~\ref{fig:iact-dl3}, is similar for all gamma-ray telescopes (and other event-recording instruments like e.g. neutrino telescopes). One major difference that affects data formats and analysis tools is whether the gamma-ray telescope was operated in a pointed observation mode (like IACTs most of the time) or in a slewing mode (like HAWC or Fermi-LAT most of the time).
 
 \begin{figure}[tb]
-\centerline{\includegraphics[width=0.9\textwidth]{figures/iact-dl3}}
+\centerline{\includegraphics[width=0.8\textwidth]{figures/iact-dl3}}
 \caption{
-Illustration of major components of IACT (here a H.E.S.S. 1 Crab nebula observation) DL3 data. The \texttt{EVENTS} are stored as a table with the most relevant parameters shown. To derive spectra and morphology measurements of astrophysical sources, IRFs are used: the effective area (\texttt{AEFF}), energy dispersion (\texttt{EDISP}) and point spread function (\texttt{PSF}). Sometimes background (\texttt{BKG}) models are also created and released as part of DL3 data (as an additional IRF component), and other times they are derived at the science tools level. Note that this picture is not complete, see the "IACT DL3" section.
+Illustration of major components of IACT (here a H.E.S.S. 1 Crab nebula observation) DL3 data. The \texttt{EVENTS} are stored as a table with the most relevant parameters shown. To derive spectra and morphology measurements of astrophysical sources, instrument response functions (IRFs) are used: the effective area (\texttt{AEFF}), energy dispersion (\texttt{EDISP}) and point spread function (\texttt{PSF}). Sometimes background (\texttt{BKG}) models are also created and released as part of DL3 data (as an additional IRF component), and other times they are derived at the science tools level. Note that this picture is not complete, see the ``IACT DL3'' section.
 }
 \label{fig:iact-dl3}
 \end{figure}
@@ -38,9 +39,11 @@ A dedicated two-day face-to-face meeting on IACT DL3 data was held in April 2016
 \item{}How to support multiple \texttt{EVENT} classes and types?
 \end{itemize}
 
+% TODO: mention observation and HDU index tables, and that the question whether linking and access of the many HDUs on users's machines should be specified or not is controversial (some prefer to let every telescope / tool / user to do it as they like).
+
+
 A major result of the face-to-face workshop was to agree to focus on IRF formats that use the multi-array convention and FITS BINTABLE to store the IRF data and axis information, where previously a second format was being developed and prototyped for CTA \citep{2015arXiv150807437W}. The prototyping of IACT DL3 is continuing in the different IACT collaborations and in Gammapy/ctools, with communications online via Github, monthly joint tele-conferences, and a planned face-to-face follow-up meeting in fall 2016. So far the focus is set on pointed gamma-ray observations. Contributions and involvement from people working on slewing telescopes (e.g. Fermi-LAT or HAWC and also IACTs) or non-gamma-ray telescopes with similar data (e.g. neutrino telescopes) are welcome. The largest stakeholder for the IACT DL3 work is CTA.
 
-TODO: mention observation and HDU index tables, and that the question whether linking and access of the many HDUs on users's machines should be specified or not is controversial (some prefer to let every telescope / tool / user to do it as they like).
 
 \subsection{Data level 4 \& 5 specifications}
 
@@ -51,17 +54,18 @@ Another topic in the \texttt{gamma-astro-data-formats} specifications is the dev
 \item{} For 3-dimensional cubes, where the third dimension is \texttt{ENERGY}, commonly 3-dimensional \texttt{FITS IMAGE} extensions are used. However, due to either the complexity or missing features in the FITS WCS model, the energy axis information is not represented in the FITS header, but in a separate \texttt{BINTABLE HDU} called \texttt{ENERGY} (if the cube represents quantities at given energies, like exposure or flux), or \texttt{EBOUNDS} ("energy bounds", if the cube represents integral quantities like e.g. counts).
 A specification at \gadf can document the exact semantics for storing the energy axis and how interpolation and integration should be performed by science tools (e.g. for exposure or diffuse model flux cubes).
 \item{} For all-sky maps and cubes, HEALPix\cite{2005ApJ...622..759G} is commonly used in gamma-ray astronomy (e.g. by Fermi-LAT). While 2-dimensional HEALPix images are standardized, extensions have been developed to represent cubes, as well as to store sparse data or images that don't cover the whole sky \footnote{\pointlikedata}. These gamma-ray specific extensions are not standardized, and a specification at \gadf would be welcome.
-\item{} The existing OGIP formats (\texttt{PHA} for counts, \texttt{BKG} for background, \texttt{ARF} for effective area, \texttt{RMF} for energy dispersion and \texttt{RPSF} for the point spread function) are in use for gamma-ray astronomy, usually for 1-dimensional spectral analysis. In the current specification we have added a section referencing the relevant OGIP documents. Whether we want to extend these formats e.g. with extra header keywords to denote the cases of point-like versus full-enclosure effective areas, or which ``safe'' energy ranges should be used for analysis, is under discussion.
+\item{} The common method for 1-dimensional spectral analysis in X-ray astronomy \citep{Davis:2001}, as well as the corresponding file formats (e.g. \texttt{ARF} for effective area, \texttt{RMF} for energy dispersion) are also used in VHE gamma-ray astronomy. In the current specification we have added a section referencing the relevant OGIP documents and explained how the formats are commonly used in gamma-ray astronomy (e.g. using a ``reconstructed energy'' axis instead of the ``pulse height channels'' axis used in X-ray astronomy).
+% some extensions . Whether we want to extend these formats e.g. with extra header keywords to denote the cases of point-like versus full-enclosure effective areas, or which ``safe'' energy ranges should be used for analysis, is under discussion.
+%(\texttt{PHA} for counts, \texttt{BKG} for background, \texttt{ARF} for effective area, \texttt{RMF} for energy dispersion and \texttt{RPSF} for the point spread function) are in use for gamma-ray astronomy, usually for 1-dimensional spectral analysis. 
 \item{} For 1-dimensional spectra, a format to store flux points and upper limits, as well as full likelihood profiles is available at \gadf (see Figure~\ref{fig:dl4-examples} left panel). It was first developed in Fermipy and applied to Fermi-LAT analyses, and is now being adopted for IACT spectra.
 \item{} No format specification for light curves (see Figure~\ref{fig:dl4-examples} right panel for an illustration) is available yet. Previously a format has been proposed in \cite{2010AnA...524A..48T} and a pull request with discussions for a lightcurve specification at \gadf is ongoing.
-\item{} No format specifications have been proposed for catalogs (data level 5, DL5) yet. So far each catalog (Fermi-LAT, upcoming H.E.S.S. and HAWC) is unique (but all similar) and some science tools have per-catalog code to produce corresponding sky models. Whether it makes sense to define a common catalog format for gamma-ray astronomy remains to be discussed. Probably at least adopting the spectrum and lightcurve formats mentioned before could be useful.
+\item{} No format specifications have been proposed for catalogs (data level 5, DL5) yet. So far each catalog (Fermi-LAT, upcoming H.E.S.S. and HAWC) is unique (but all similar) and some science tools have per-catalog code to produce corresponding sky models. %Whether it makes sense to define a common catalog format for gamma-ray astronomy remains to be discussed. Probably at least adopting the spectrum and lightcurve formats mentioned before could be useful.
 \end{itemize}
 
 \begin{figure}[tb]
-\centerline{\includegraphics[width=\textwidth]{figures/dl4-examples}}
+\centerline{\includegraphics[width=0.8\textwidth]{figures/dl4-examples}}
 \caption{
-Gamma-ray "data level 4" examples. \emph{Left:} spectral energy distribution (SED) likelihood profiles (green), with flux points and upper limits as well
-as a best-model fit overplotted. \emph{Right:} Lightcurve of 3FGL~J0349.9-2102 from the third Fermi-LAT catalog.
+Gamma-ray ``data level 4'' examples. \emph{Left:} spectral energy distribution (SED) likelihood profiles (green), with flux points, upper limits and best-fit model shown. \emph{Right:} Lightcurve of 3FGL~J0349.9-2102 from the third Fermi-LAT catalog.
 }
 \label{fig:dl4-examples}
 \end{figure}
