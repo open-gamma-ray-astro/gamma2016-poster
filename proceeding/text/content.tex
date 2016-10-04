@@ -7,15 +7,15 @@ There are some general topics still under discussion, e.g. there is no consensus
 
 \subsection{Data level 3 specifications}
 
-The interface between low-level (calibration, shower reconstruction, gamma-hadron separation) and high-level (science tools) analysis for gamma-ray data is usually represented by an event list, where at a minimum the \texttt{EVENT\_ID}, \texttt{TIME}, as well as the reconstructed \texttt{ENERGY} and sky position (\texttt{RA}, \texttt{DEC}) is given for every event. In addition, instrument response functions (IRFs) as well as auxiliary technical information such as telescope configuration options, good time intervals (GTIs), live-time, and pointing information (collectively called \texttt{TECH} in the CTA context) are needed by the science tools to compute exposures, effective resolutions (PSF and EDISP), and ultimately fluxes to compare the data with sky models. This DL3 data, illustrated in Figure~\ref{fig:iact-dl3}, is similar for all gamma-ray telescopes (and other event-recording instruments like e.g. neutrino telescopes). One major difference that affects data formats and analysis tools is whether the gamma-ray telescope was operated in a pointed observation mode (like IACTs most of the time) or in a slewing mode (like HAWC or Fermi-LAT most of the time).
-
 \begin{figure}[tb]
-\centerline{\includegraphics[width=0.8\textwidth]{figures/iact-dl3}}
+\centerline{\includegraphics[width=0.7\textwidth]{figures/iact-dl3}}
 \caption{
 Illustration of major components of IACT DL3 data (using a H.E.S.S. 1 Crab nebula observation). The \texttt{EVENTS} are stored as a table with the most relevant parameters shown. To derive spectra and morphology measurements of astrophysical sources, instrument response functions (IRFs) are used: effective area (\texttt{AEFF}), energy dispersion (\texttt{EDISP}), and point spread function (\texttt{PSF}). Sometimes background (\texttt{BKG}) models are also created and released as part of DL3 data (as an additional IRF component), and other times they are derived at the science tools level. Note that this picture is not complete, see the ``IACT DL3'' section.
 }
 \label{fig:iact-dl3}
 \end{figure}
+
+The interface between low-level (calibration, shower reconstruction, gamma-hadron separation) and high-level (science tools) analysis for gamma-ray data is usually represented by an event list, where at a minimum the \texttt{EVENT\_ID}, \texttt{TIME}, as well as the reconstructed \texttt{ENERGY} and sky position (\texttt{RA}, \texttt{DEC}) is given for every event. In addition, instrument response functions (IRFs) as well as auxiliary technical information such as telescope configuration options, good time intervals (GTIs), live-time, and pointing information (collectively called \texttt{TECH} in the CTA context) are needed by the science tools to compute exposures, effective resolutions (PSF and EDISP), and ultimately fluxes to compare the data with sky models. This DL3 data, illustrated in Figure~\ref{fig:iact-dl3}, is similar for all gamma-ray telescopes (and other event-recording instruments like e.g. neutrino telescopes). One major difference that affects data formats and analysis tools is whether the gamma-ray telescope was operated in a pointed observation mode (like IACTs most of the time) or in a slewing mode (like HAWC or Fermi-LAT most of the time).
 
 The current specification contains a very preliminary proposal of a data model and formats for IACT DL3 data that is based on ``observations'' (with an \texttt{OBS\_ID}) and assumed stable IRFs during the observation. This proposal was inspired by existing formats used by H.E.S.S. and partly also VERITAS and MAGIC, that are mostly supported by the existing science tool prototypes (Gammapy and ctools). 
 % Remove this sentence ... mainly to save space (6-page limit)
@@ -36,7 +36,7 @@ A major result of the face-to-face workshop was to agree to focus on IRF formats
 \subsection{Data level 4 \& 5 specifications}
 
 Another topic in the \texttt{gamma-astro-data-formats} specifications is the development of formats to store high-level data products such as sky-maps, spectra, and lightcurves (data level 4) or source catalogs (data level 5).  Here we list DL4 and DL5 format specifications that are currently included in \gadf or under consideration:
-
+%
 \begin{itemize}
 \item{} For 2-dimensional images, the existing FITS and world coordinate system (WCS) standard provides a solution that works for gamma-ray sky-maps as well. If something gamma-ray specific were to be added, it would likely be specifications on how to store parameters of interest for analysis or provenance in the header.
 \item{} For 3-dimensional cubes, where the third dimension is \texttt{ENERGY}, commonly 3-dimensional \texttt{FITS IMAGE} extensions are used. However, due to either the complexity or missing features in the FITS WCS model, the energy axis information is not represented in the FITS header, but in a separate \texttt{BINTABLE HDU} called \texttt{ENERGY} (if the cube represents quantities at given energies, like exposure or flux), or \texttt{EBOUNDS} ("energy bounds", if the cube represents integral quantities like e.g. counts).
