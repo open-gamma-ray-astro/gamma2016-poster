@@ -2,7 +2,7 @@
 
 This section gives an overview of the current status and plans for the gamma-ray data model and formats. As mentioned before, this effort was only started recently and none of the formats should be considered stable. The next two sections will describe the effort to define an event data model and format (DL3) and higher-level formats for sky-maps, spectra, and lightcurves (DL4), i.e. a content split as already illustrated in Figure~\ref{fig:purpose}.
 In the data specification document we have created a ``general'' section where common quantities are defined, such as precise definitions of time scales as well as coordinate systems. 
-
+%
 There are some general topics still under discussion, e.g. there is no consensus on how specific or flexible the format specifications should be. E.g. some people prefer to be very specific (data must be stored in FITS files, data types and units fixed), others would prefer to be flexible (only define header keywords and column names, but data can be stored in other file formats as well, e.g. text-based formats like ECSV).
 
 \subsection{Data level 3 specifications}
@@ -17,24 +17,21 @@ Illustration of major components of IACT DL3 data (using a H.E.S.S. 1 Crab nebul
 \label{fig:iact-dl3}
 \end{figure}
 
-The current specification contains a very preliminary proposal of a data model and formats for IACT DL3 data. This proposal was inspired by existing formats used by H.E.S.S. and partly also VERITAS and MAGIC, that are mostly supported by the existing science tool prototypes (Gammapy and ctools). To help the \gadf effort and science tool prototyping, H.E.S.S. is planning to release a small test dataset in the current format consisting of roughly 50 hours of H.E.S.S. 1 observations on a few sources in fall 2016.
-
-A dedicated two-day face-to-face meeting on IACT DL3 data was held in April 2016 in Meudon, France, with 16 participants from all major existing IACTs and CTA (see \ogrameudon). The use cases and status of efforts to export and archive their data in FITS was presented, as well as the ongoing prototyping in science tools. Many important points were discussed:
-
+The current specification contains a very preliminary proposal of a data model and formats for IACT DL3 data that is based on ``observations'' (with an \texttt{OBS\_ID}) and assumed stable IRFs during the observation. This proposal was inspired by existing formats used by H.E.S.S. and partly also VERITAS and MAGIC, that are mostly supported by the existing science tool prototypes (Gammapy and ctools). 
+% Remove this sentence ... mainly to save space (6-page limit)
+% To help the \gadf effort and science tool prototyping, H.E.S.S. is planning to release a small test dataset in the current format consisting of roughly 50 hours of H.E.S.S. 1 observations on a few sources in fall 2016.
+A dedicated two-day face-to-face meeting on IACT DL3 data was held in April 2016 in Meudon, France, with 16 participants from all major existing IACTs and CTA.\footnote{\ogrameudon} The use cases and status of efforts to export and archive their data in FITS was presented, as well as the ongoing prototyping in science tools. Many important points were discussed:
+%
 \begin{itemize}
 \item{}What is an observation? Good time interval? Response time interval?
 \item{}How to link \texttt{EVENT} and \texttt{IRF}? (naming conventions, header references, index tables)
 \item{}Pointing and live time information
 \item{}Exact definition of field of view (FoV) coordinates
-\item{}IRF axis specification and \texttt{IRF} validity ranges (default ``safe'' analysis ranges e.g. in energy or FoV offset to be used).
+\item{}\texttt{IRF} axis specification, validity ranges, errors
 \item{}How to support multiple \texttt{EVENT} classes and types?
 \end{itemize}
-
-% TODO: mention observation and HDU index tables, and that the question whether linking and access of the many HDUs on users's machines should be specified or not is controversial (some prefer to let every telescope / tool / user to do it as they like).
-
-
+%
 A major result of the face-to-face workshop was to agree to focus on IRF formats that use the multi-array convention and FITS BINTABLE to store the IRF data and axis information, where previously a second format was being developed and prototyped for CTA \citep{2015arXiv150807437W}. The prototyping of IACT DL3 is continuing in the different IACT collaborations and in Gammapy/ctools, with communications online via Github, monthly joint tele-conferences, and a planned face-to-face follow-up meeting in fall 2016. So far the focus is set on pointed gamma-ray observations. Contributions and involvement from people working on slewing telescopes (e.g. Fermi-LAT or HAWC and also IACTs) or non-gamma-ray telescopes with similar data (e.g. neutrino telescopes) are welcome. The largest stakeholder for the IACT DL3 work is CTA.
-
 
 \subsection{Data level 4 \& 5 specifications}
 
