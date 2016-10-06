@@ -20,6 +20,7 @@ tarball:
 	- tar -cvzf $(TARGET).tar.gz \
 	open-gamma-ray-astro-gamma2016.tex \
 	open-gamma-ray-astro-gamma2016.bib \
+	open-gamma-ray-astro-gamma2016.bbl \
 	text/*.tex \
 	figures/purpose.pdf \
 	figures/webpage.pdf \
